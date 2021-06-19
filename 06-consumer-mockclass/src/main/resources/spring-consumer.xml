@@ -7,6 +7,7 @@
 
     <dubbo:registry address="zookeeper://zkOS:2181" />
 
+    <!--check 属性，关闭服务检查。就是当服务提供者还未启动，当前消费者先启动了，就会报找不到服务提供者的错误。-->
     <dubbo:reference id="userService" mock="true" check="false"
                      interface="com.abc.service.UserService"/>
 

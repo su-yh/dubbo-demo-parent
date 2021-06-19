@@ -8,11 +8,12 @@
     <dubbo:registry address="zookeeper://zkOS:2181" />
 
     <!--指定消费0.0.1版本，即oldService提供者-->
-    <!--<dubbo:reference id="someService"  version="0.0.1"-->
-                     <!--interface="com.abc.service.SomeService"/>-->
+    <dubbo:reference id="someService"  version="0.0.1"
+                     interface="com.abc.service.SomeService"/>
 
     <!--指定消费0.0.2版本，即newService提供者-->
-    <dubbo:reference id="someService"  version="0.0.2"
-                     interface="com.abc.service.SomeService"/>
+    <!--在服务提供者需要有对应有配置以及实现-->
+<!--    <dubbo:reference id="someService"  version="0.0.2"-->
+<!--                     interface="com.abc.service.SomeService"/>-->
 
 </beans>
