@@ -7,16 +7,23 @@
 
     <dubbo:registry address="zookeeper://zkOS:2181"/>
 
+    <!--声明dubbo协议监听端口号为：20880-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <!--声明rmi协议监听端口号为：1099-->
+    <dubbo:protocol name="rmi" port="1099"/>
+
     <!--注册Service实现类-->
     <bean id="oldService" class="com.abc.provider.OldServiceImpl"/>
     <bean id="newService" class="com.abc.provider.NewServiceImpl"/>
 
     <!--暴露服务-->
     <!--多版本发布，灰度发布。对于同一个接口有两个不同的实现。最终调用哪一个实现由消费者自行决定，在消费者配置中添加对应配置即可。-->
+    <!--版本升级时使用version，新版本替换老版本。-->
     <dubbo:service interface="com.abc.service.SomeService"
                    ref="oldService" version="0.0.1"/>
+    <!--添加支持两种协议: dubbo,rmi，需要为每种协议指定对应端口号如上11 行与13 行-->
     <dubbo:service interface="com.abc.service.SomeService"
-                   ref="newService" version="0.0.2"/>
+                   ref="newService" version="0.0.2" protocol="dubbo,rmi"/>
 
 
 </beans>

@@ -12,7 +12,7 @@
     <bean id="zhifubaoService" class="com.abc.provider.ZhifubaoServiceImpl"/>
 
     <!--暴露服务-->
-    <!--多组发布-->
+    <!--多组发布，同时都是存在的。-->
     <dubbo:service interface="com.abc.service.SomeService"
                    ref="weixinService" group="pay.weixin"/>
     <dubbo:service interface="com.abc.service.SomeService"
